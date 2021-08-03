@@ -1,3 +1,17 @@
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+      .close_qstn{
+        position: absolute;
+        bottom: 4em;
+        left: 96%;
+      }
+     
+</style>
 <?php
 error_reporting(0);
 $page = file_get_contents('http://localhost/img/document.html');
@@ -8,9 +22,12 @@ $nodeList = $xpath->query("///span[@class='c0']");
 $i = 0;
 $j = 0; ?>
 <form id="topic" method="POST">
+<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto  form p-4">
     <?php foreach ($nodeList as $item) {
         if ($nodeList->item($i)->nodeValue[0] == '#') {  ?>
-            <input type="checkbox" value="1" name="topic<?php echo $i;?>">
+  
+            
+            <input  type="checkbox" value="1" name="topic<?php echo $i;?>">
     <?php
             echo substr($nodeList->item($i)->nodeValue, 3) . "<br>";
         } else {
@@ -19,19 +36,29 @@ $j = 0; ?>
         $i++;
     }
     ?>
-    <label for="yes_no_radio">Would you like to add any topics to the above list?</label>
-    <input type="radio" name="yes_no" value="no" checked>No</input>
-    <input type="radio" name="yes_no" value="yes">Yes</input>
+    <label  class="container" for="yes_no_radio">Would you like to add any topics to the above list?</label>
+  <input class="" type="radio" name="yes_no" value="no">
+    <span class="checkmark"></span>
+  <label>No</label>
+
+    <input class="" type="radio" name="yes_no" value="yes">
+    <span class="checkmark"></span>
+    <label>Yes</label>
     <br><br>
     <div id="extra" style="display:none">
         <div class="input_fields_wrap">
-            <div><input type="text" name="sugg_topic" placeholder="Enter Topic"></div>
+
+            <div class="form-group">
+            <span><button class="add_field_button btn btn-secondary">Add Topic</button></span>
+            <input type="text" class="form-control" name="sugg_topic" placeholder="Enter Topic">
+            </div>
         </div>
-        <br>
-        <button class="add_field_button">Add Topic</button>
-    </div>
-    <br>
-    <input type="submit" name="submit" value="Submit">
+        </div>
+        <div class="text-center">
+                <button type="submit" name="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>  
+    
+</div>
 </form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
@@ -44,7 +71,7 @@ $j = 0; ?>
             e.preventDefault();
             if (x < max_fields) { //max input box allowed
                 x++; //text box increment
-                $(wrapper).append('<div><input type="text" placeholder="Enter Topic" name="sugg_topic" />&nbsp;&nbsp;<button class="remove_field">Close</button></div>'); //add input box
+                $(wrapper).append('<div><input type="text"  class="form-control"  placeholder="Enter Topic" name="sugg_topic" /><button type="button" class="close close_qstn remove_field" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>'); //add input box
             }
         });
         $(wrapper).on("click", ".remove_field", function(e) { //user click on remove text
