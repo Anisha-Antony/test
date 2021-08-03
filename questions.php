@@ -5,7 +5,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-
     body {
   -webkit-user-select: none;
      -moz-user-select: -moz-none;
@@ -15,29 +14,6 @@
 .grid {
         display: none;
     }
-    /* .inputdata{
-    position: absolute;
-    top: 0%;
-    left: 5%;
-    }
-    .gridoption{
-        display:initial;
-        //margin-top: 10px; 
-    font-size: 15px;
-    font-family: serif;
-    text-transform: capitalize;
-    }
-    .textalign{
-        margin-left: 22%;
-    }
-    .form-control{
-        width: 50% !important;
-        margin-top:5px;
-    }
-    .form-data{
-        margin-top: 8px;
-    } */
-   
 /* input,
 textarea {
      -moz-user-select: text;
@@ -63,31 +39,31 @@ foreach($nodeList as $item){
 
         ?>
             <form id="user<?php echo $j;?>" method="POST">
-           <div class="form-data">
-               <span class="gridoption"> Is the question relevant</span><br> 
-                <?php //echo $j;?>
+            <div class="form-data">
+            <span class="gridoption">Is the question relevant</span><br> 
+                <?php// echo $j;?>
                 <input type="radio"  name="Q<?php echo $j;?>-q" value="yes">Yes 
-                <input type="radio"  name="Q<?php echo $j;?>-q" value="no">No<br><br>
-                <span class="gridoption">Is option A relevant </span><br>
+                <input type="radio"  name="Q<?php echo $j;?>-q" value="no">No<br>
+                <span class="gridoption">Is option A relevant</span> <br>
                 <input type="radio"  name="Q<?php echo $j;?>-a" value="yes">Yes 
                 <input type="radio"  name="Q<?php echo $j;?>-a" value="no">No<br>
-                <input type="text" class="form-control form-rounded" placeholder="Change / Rephrase" name="Q<?php echo $j;?>-a"><br>
-                <span class="gridoption">Is option B relevant </span><br>
+                <input type="text" class="form-control form-rounded"   placeholder="Change / Rephrase" name="Q<?php echo $j;?>-a"><br>
+                <span class="gridoption">Is option B relevant</span><br>
                 <input type="radio"  name="Q<?php echo $j;?>-b" value="yes">Yes 
                 <input type="radio"  name="Q<?php echo $j;?>-b" value="no">No<br>
-                <input type="text" class="form-control form-rounded" placeholder="Change / Rephrase" name="Q<?php echo $j;?>-b"><br>
-                <span class="gridoption">Is option C relevant</span><br>
+                <input type="text" class="form-control form-rounded"  placeholder="Change / Rephrase" name="Q<?php echo $j;?>-b"><br>
+                <span class="gridoption"> option C relevant</span><br>
                 <input type="radio"  name="Q<?php echo $j;?>-c" >Yes 
                 <input type="radio"  name="Q<?php echo $j;?>-c" >No<br>
-                <input type="text" class="form-control form-rounded" placeholder="Change / Rephrase" name="Q<?php echo $j;?>-c"><br>
+                <input type="text" class="form-control form-rounded"  placeholder="Change / Rephrase" name="Q<?php echo $j;?>-c"><br>
                 <span class="gridoption">Is option D relevant</span><br>
                 <input type="radio"  name="Q<?php echo $j;?>-d" value="yes">Yes 
                 <input type="radio"  name="Q<?php echo $j;?>-d" value="no">No<br>
-                <input type="text" class="form-control form-rounded" placeholder="Change / Rephrase" name="Q<?php echo $j;?>-d"><br> 
+                <input type="text" class="form-control form-rounded"  placeholder="Change / Rephrase" name="Q<?php echo $j;?>-d"><br> 
                 <input type="submit" class="btn btn-primary gridoption textalign" value="submit" onClick="aa('<?php echo "user".$j;?>')">
             
-                <!-- <hr><hr> -->
-               </div>
+                <hr><hr>
+            </div>
             </form>
         <?php
         echo '</div><div class="grid">';$j++;
@@ -105,9 +81,6 @@ foreach($nodeList as $item){
 
 <script type="text/javascript">
 function aa(form_id){
-    console.log(form_id);
-
-
     $( '#'+form_id ).submit(function( event ) {
         
         var $formData = $('#user1').serializeArray();

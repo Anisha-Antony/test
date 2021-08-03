@@ -1,0 +1,23 @@
+
+.inputdata{
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    }
+    .gridoption{
+        display:initial;
+        /* margin-top: 10px; */
+    font-size: 15px;
+    font-family: serif;
+    text-transform: capitalize;
+    }
+    .textalign{
+        margin-left: 22%;
+    }
+    .form-control{
+        width: 50% !important;
+        margin-top:5px;
+    }
+    .form-data{
+        margin-top: 8px;
+    }
